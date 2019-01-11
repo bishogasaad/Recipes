@@ -1,0 +1,60 @@
+.width_trans{ 
+    -webkit-transition: width 0.3s linear, max-width 0.3s linear;
+    -moz-transition: width 0.3s linear, max-width 0.3s linear;
+    -o-transition:width 0.3s linear, max-width 0.3s linear;
+    transition: width 0.3s linear, max-width 0.3s linear;
+}
+.height_trans{
+    -webkit-transition: height 0.3s linear;
+    -moz-transition: height 0.3s linear;
+    -o-transition: height 0.3s linear;
+    transition: height 0.3s linear;
+}
+.diagonal_trans{
+    -webkit-transition: height 0.5s linear , width 0.5s linear , max-width 0.5s linear, max-height 0.5s linear;
+    -moz-transition: height 0.5s linear , width 0.5s linear , max-width 0.5s linear, max-height 0.5s linear;
+    -o-transition:height 0.5s linear , width 0.5s linear , max-width 0.5s linear, max-height 0.5s linear;
+    transition: height 0.5s linear , width 0.5s linear , max-width 0.5s linear, max-height 0.5s linear;
+}
+.all_trans{
+    -webkit-transition:all 0.5s linear;
+    -moz-transition:all 0.5s linear;
+    -o-transition:all 0.5s linear;
+    transition: all 0.5s linear;
+}
+.all_trans-op{
+    -webkit-transition:all 0.5s linear,opacity 0s;
+    -moz-transition:all 0.5s linear,opacity 0s;
+    -o-transition:all 0.5s linear,opacity 0s;
+    transition: all 0.5s linear,opacity 0s;
+}
+.op_trans{
+    -webkit-transition: opacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+}
+.d-3{
+    -webkit-transition-delay: 0.3s;
+    -moz-transition-delay: 0.3s;
+    -o-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+}
+.d-5{
+    -webkit-transition-delay: 0.5s;
+    -moz-transition-delay: 0.5s;
+    -o-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+}
+.d-10{
+    -webkit-transition-delay: 1s;
+    -moz-transition-delay: 1s;
+    -o-transition-delay: 1s;
+    transition-delay: 1s;
+}
+.d-15{
+    -webkit-transition-delay: 1.5s;
+    -moz-transition-delay: 1.5s;
+    -o-transition-delay: 1.5s;
+    transition-delay: 1.5s;
+}
