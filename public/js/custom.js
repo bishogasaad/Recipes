@@ -60,25 +60,25 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 28);
+/******/ 	return __webpack_require__(__webpack_require__.s = 26);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 28:
+/***/ 26:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(29);
-module.exports = __webpack_require__(32);
+__webpack_require__(27);
+module.exports = __webpack_require__(30);
 
 
 /***/ }),
 
-/***/ 29:
+/***/ 27:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(30);
-var custom = __webpack_require__(31);
+__webpack_require__(28);
+var custom = __webpack_require__(29);
 
 var fix_row_at = function fix_row_at(br, element_id) {
     if ($(window).width() > br) {
@@ -122,7 +122,7 @@ function scroll_slide(e) {
 
 /***/ }),
 
-/***/ 30:
+/***/ 28:
 /***/ (function(module, exports) {
 
 var open = false;
@@ -349,7 +349,7 @@ $(".toggle").click(function () {
 
 /***/ }),
 
-/***/ 31:
+/***/ 29:
 /***/ (function(module, exports) {
 
 var array = $(".img-square").toArray();
@@ -373,7 +373,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 32:
+/***/ 30:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
