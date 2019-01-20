@@ -16,11 +16,11 @@ class RecipeProducts extends Migration
         //
         Schema::create('recipe_products', function(Blueprint $table)
         {
-            $table->char('recipe_id',36);
+            $table->integer('recipe_id',false,true);
             $table->foreign('recipe_id')->references('id')
             ->on('recipes')->onDelete('cascade');
             
-            $table->char('product_id',36);
+            $table->integer('product_id',false,true);
             $table->foreign('product_id')->references('id')
             ->on('products')->onDelete('cascade');
 
@@ -36,5 +36,6 @@ class RecipeProducts extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('recipe_products');
     }
 }

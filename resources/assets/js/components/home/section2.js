@@ -10,7 +10,7 @@ export default class Section2 extends Component {
         this.state={
             featured:[],
             filtered:[],
-            url:window.location.origin+"/Recipes/public/"
+            url:window.location.origin
         }
         this.Filter=this.Filter.bind(this);
     }

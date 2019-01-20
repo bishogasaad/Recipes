@@ -16,7 +16,7 @@ class Rating extends Migration
         //
         Schema::create('recipes_rating',function(Blueprint $table)
         {
-            $table->integer('recipe_id');
+            $table->integer('recipe_id',false,true);
             $table->foreign('recipe_id')->references('id')
             ->on('recipes')->onDelete('cascade');
             
@@ -35,6 +35,6 @@ class Rating extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('recipes_rating');
     }
 }

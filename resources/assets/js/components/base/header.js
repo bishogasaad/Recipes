@@ -9,13 +9,13 @@ class Guest extends Component{
     render() {  
         return(
         <div className="my-auto d-flex justify-content-between">
-            <a href={window.location.origin+"/Recipes/public/login"}>
+            <a href={window.location.origin+"/login"}>
                 <div className="round blue px-3 text-white">
                     <i className="fas fa-sign-in-alt"></i>
                     {(window.outerWidth>767)?" LOGIN":""}
                 </div>
             </a>
-            <a href={window.location.origin+"/Recipes/public/register"}>
+            <a href={window.location.origin+"/register"}>
                 <div className="round blue mx-2 px-3 text-white">
                     <i className="fas fa-user-plus"></i>
                     {(window.outerWidth>767)?" SignUp":""}
@@ -32,13 +32,13 @@ class SignedIn extends Component{
     render() {  
         return(
         <div className="my-auto d-flex justify-content-between">
-            <a href={window.location.origin+"/Recipes/public/user/"+this.props.user.name.replace(new RegExp(" ", "g"), '-')+"?id="+this.props.user.id}>
+            <a href={window.location.origin+"/user/"+this.props.user.name.replace(new RegExp(" ", "g"), '-')+"?id="+this.props.user.id}>
                 <div className="round blue px-3 text-white">
                     <i className="fas fa-user"></i>
                     { (window.outerWidth>767)?" "+this.props.user.name:""}
                 </div>
             </a>
-            <a href={window.location.origin+"/Recipes/public/logout"}>
+            <a href={window.location.origin+"/logout"}>
                 <div className="round blue mx-2 px-3 text-white">
                     <i className="fas fa-sign-out-alt"></i>
                     { (window.outerWidth>767)?" SignOut":""}
@@ -58,14 +58,14 @@ export default class Header extends Component {
             filtered:[],
             user:{name:null,id:null},
             authenticated:false,
-            url:window.location.origin+"/Recipes/public/"
+            url:window.location.origin
         }
         this.Filter=this.Filter.bind(this);
     };
     handleSearch(query){
         if(query==''){this.setState({result:[]});}
         else
-        {Axios.get(this.state.url+'search/',{
+        {Axios.get(this.state.url+'/search/',{
             params:{
                 query:query
             }
@@ -75,7 +75,7 @@ export default class Header extends Component {
           });}
     }
     componentDidMount(){
-        Axios.get(this.state.url+'user')
+        Axios.get(this.state.url+'/user')
         .then((res)=>{
             if(res.data!='')
             this.setState({user:{name:res.data[0],id:res.data[1]},authenticated:true});
@@ -198,7 +198,7 @@ export default class Header extends Component {
                 <div id="header_bg" >
                     <svg width="100%" viewBox="0 0 37.32 15.577" xmlns="http://www.w3.org/2000/svg"><path d="M0 0a18.979 18.979 0 0 0 18.663 15.577A18.979 18.979 0 0 0 37.319 0z" fill="#da4d55c8" paintOrder="fill markers stroke"/></svg>
                 </div>
-                <a className="absolute p-1 pt-2 p-md-2 px-lg-0 col-lg-1 col-2 pointer all" href={this.state.url}><img className="m-auto" src={this.state.url+'images/logo.svg'} id="logo"></img></a>
+                <a className="absolute p-1 pt-2 p-md-2 px-lg-0 col-lg-1 col-2 pointer all" href={this.state.url}><img className="m-auto" src={this.state.url+'/images/logo.svg'} id="logo"></img></a>
             </div>
         </header>
     

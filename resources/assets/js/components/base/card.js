@@ -13,12 +13,12 @@ export default class Card extends Component {
     }
     deleteRecipe(){
         if (confirm('Are you sure you want to Delete this Recipe ?')) {
-            axios.delete(window.location.origin+"/Recipes/public/recipe/"+this.props.data.id)
+            axios.delete(window.location.origin+"/recipe/"+this.props.data.id)
             .then(res=>{window.location=res.data});
         }
     }
     render(){
-        let url=window.location.origin+"/Recipes/public/";
+        let url=window.location.origin;
         let hour = Math.floor(this.props.data.time);
         let min = (this.props.data.time*100).toFixed(0)-Math.floor(this.props.data.time)*100;
         let value=(min/60*360)-180;
@@ -74,7 +74,7 @@ export default class Card extends Component {
                     <div className="relative d-flex">
                         <div>
                             <img className={"round-1 m-auto img-fluid p-0 border-"+col+" bordered-2x cover"}
-                            src={url+'images/StockSnap_IZBN5G7AAB.jpg'}></img>
+                            src={url+'/images/StockSnap_IZBN5G7AAB.jpg'}></img>
                         </div>
                         {this.props.edit?
                         <div className="d-flex round-1 absolute h-100 op_trans bg-white col-12 info">
@@ -123,7 +123,7 @@ export default class Card extends Component {
             return(content)
         else
             return (
-            <a className="item pointer align-self-center h-100" href={"http://localhost:3000/Recipes/public/recipe/"+this.props.data.title}>
+            <a className="item pointer align-self-center h-100" href={"http://localhost:8080/recipe/"+this.props.data.title}>
                 {content}
             </a>
         );

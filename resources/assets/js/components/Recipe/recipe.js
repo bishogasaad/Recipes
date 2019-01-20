@@ -11,14 +11,14 @@ export default class Recipe extends Component {
         this.addRating=this.addRating.bind(this);
     }
     componentDidMount(){
-        axios.get(window.location.origin+"/Recipes/public/recipe/products",{
+        axios.get(window.location.origin+"/recipe/products",{
             params:{
                 id:document.getElementById('recipe').getAttribute('data-id')
             }
         }).then((res)=>this.setState({products:res.data}))
     }
     addRating(e){
-        axios.put(window.location.origin+"/Recipes/public/recipe/"+document.getElementById('recipe').getAttribute('data-id'),{
+        axios.put(window.location.origin+"/recipe/"+document.getElementById('recipe').getAttribute('data-id'),{
             rating:e
         })
         .then(res=>{
@@ -27,7 +27,7 @@ export default class Recipe extends Component {
         })
     }
     render() {
-        let url=window.location.origin+"/Recipes/public/";
+        let url=window.location.origin;
         var s=[];
         var element=document.getElementById('recipe');
         var rating_num=parseFloat( element.getAttribute('data-rating'));

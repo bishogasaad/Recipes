@@ -49,7 +49,7 @@ export default class Product extends Component {
                             <div className="py-2 text-blue"><h4>{this.state.name}</h4></div>
                             <div className="d-flex flex-row flex-wrap p-0">
                                 <div className="col-12 col-xl align-items-start p-0 d-flex flex-wrap hidden">
-                                    <img className="col-6 col-xl p-0 rounded" src={"http://localhost:3000/Recipes/public/images/StockSnap_IZBN5G7AAB.jpg"} />
+                                    <img className="col-6 col-xl p-0 rounded" src={"http://localhost:8080/images/StockSnap_IZBN5G7AAB.jpg"} />
                                     <div className={"col d-xl-none text-"+(this.state.Available?'success':'danger')}>{this.state.Available?'Available':'Unavailable'}</div>
                                 </div>
                                 <div className="pl-xl-4 py-3 p-xl-0 col mw-100 col-xl-8 text-white p-0">
