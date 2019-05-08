@@ -58,7 +58,6 @@ export default class Header extends Component {
             filtered:[],
             user:{name:null,id:null},
             authenticated:false,
-            url:window.location.origin
         }
         this.Filter=this.Filter.bind(this);
         this.onHover=this.onHover.bind(this);
@@ -68,7 +67,7 @@ export default class Header extends Component {
         let query = e.currentTarget.value;
         if(query==''){this.setState({result:[]});}
         else
-        {Axios.get(this.state.url+'/search/',{
+        {Axios.get(window.location.origin+'/search/',{
             params:{
                 query:query
             }
@@ -78,7 +77,7 @@ export default class Header extends Component {
           });}
     }
     componentDidMount() {
-        Axios.get(this.state.url+'/user')
+        Axios.get(window.location.origin+'/user')
         .then((res)=>{
             if(res.data!='')
             this.setState({user:{name:res.data[0],id:res.data[1]},authenticated:true});
@@ -228,9 +227,9 @@ export default class Header extends Component {
                         }
                 </div>
                 <div id="header_bg" >
-                    <svg width="100%" viewBox="0 0 37.32 15.577" xmlns="http://www.w3.org/2000/svg"><path d="M 0,0 A 18.979,18.979 0 0 0 18.663,15.577 18.979,18.979 0 0 0 37.319,0 Z" fill="#da4d55c8" paintOrder="fill markers stroke"/></svg>
+                    <svg width="100%" viewBox="0 0 37.32 15.577" xmlns="https://www.w3.org/2000/svg"><path d="M 0,0 A 18.979,18.979 0 0 0 18.663,15.577 18.979,18.979 0 0 0 37.319,0 Z" fill="#da4d55c8" paintOrder="fill markers stroke"/></svg>
                 </div>
-                <a className="absolute p-1 pt-2 p-md-2 p-lg-2 col-lg-1 col-2 pointer all" href={this.state.url}><img className="m-auto" src='/images/logo.svg' id="logo"></img></a>
+                <a className="absolute p-1 pt-2 p-md-2 p-lg-2 col-lg-1 col-2 pointer all" href={window.location.origin}><img className="m-auto" src='/images/logo.svg' id="logo"></img></a>
             </div>
         </header>
         );

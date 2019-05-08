@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $this->call(UsersTableSeeder::class);
+        //$this->call(UsersTableSeeder::class);
         factory(App\Product::class,50)->create();
         factory(App\User::class,5)->create();
         factory(App\Recipe::class,50)->create();
