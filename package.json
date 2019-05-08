@@ -11,27 +11,32 @@
     },
     "devDependencies": {
         "@babel/preset-react": "^7.0.0",
+        "@types/node": "^11.11.3",
         "axios": "^0.18",
         "babel-preset-react": "^6.23.0",
-        "bootstrap": "^4.0.0",
+        "bootstrap": "^4.2.1",
+        "browser-sync": "^2.26.5",
         "browser-sync-webpack-plugin": "^2.2.2",
-        "cross-env": "^5.1",
-        "jquery": "^3.2",
-        "laravel-mix": "^4.0.14",
-        "lodash": "^4.17.4",
-        "popper.js": "^1.12",
+        "copy-webpack-plugin": "^4.6.0",
+        "cross-env": "^5.2.0",
+        "imagemin-mozjpeg": "^8.0.0",
+        "imagemin-webpack-plugin": "^2.4.0",
+        "jquery": "^3.4.1",
+        "laravel-mix": "^4.0.15",
+        "laravel-mix-svg": "^0.3.0",
+        "lodash": "^4.17.11",
+        "popper.js": "^1.14.6",
         "react": "^16.7.0",
         "react-dom": "^16.7.0",
-        "resolve-url-loader": "^2.3.1",
         "sass": "^1.16.1",
         "sass-loader": "^7.1.0",
-        "vue-template-compiler": "^2.5.22"
+        "svg-inline-loader": "^0.8.0",
+        "vue-template-compiler": "^2.6.3"
     },
     "dependencies": {
-        "browser-sync": "^2.26.3",
-        "react-fittext": "^1.0.0",
-        "react-rating": "^1.1.2",
-        "react-slick": "^0.23.1",
-        "webpack": "^4.28.4"
+        "react-parallax": "^2.2.0",
+        "react-rating": "^1.7.2",
+        "react-slick": "^0.23.2",
+        "react-textfit": "^1.1.0"
     }
 }
