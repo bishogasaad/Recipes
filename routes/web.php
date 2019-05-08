@@ -17,11 +17,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => 'https'], function(){
-
 Auth::routes();
-
-});
 Route::get('/', function () {
     return view('home');
 })->name('home');
