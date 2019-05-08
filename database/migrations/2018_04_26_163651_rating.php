@@ -20,7 +20,7 @@ class Rating extends Migration
             $table->foreign('recipe_id')->references('id')
             ->on('recipes')->onDelete('cascade');
             
-            $table->char('user_id',36);
+            $table->uuid('user_id',36);
             $table->foreign('user_id')->references('id')
             ->on('users')->onDelete('cascade');
 
