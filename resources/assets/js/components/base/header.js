@@ -67,7 +67,7 @@ export default class Header extends Component {
         let query = e.currentTarget.value;
         if(query==''){this.setState({result:[]});}
         else
-        {Axios.get(window.location.origin+'/search/',{
+        {Axios.get(window.location.origin+'/search',{
             params:{
                 query:query
             }
