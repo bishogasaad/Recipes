@@ -18,7 +18,7 @@ const imageminMozjpeg = require('imagemin-mozjpeg');
 
 mix.react('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
-   .browserSync({startPath:"",port:3001,proxy:"localhost:3000"})
+   .browserSync({startPath:"",port:3001,proxy:"https://localhost:3000"})
    .js('resources/assets/js/custom.js','public/js')
    .options({
     processCssUrls: false 

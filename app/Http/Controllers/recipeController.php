@@ -110,7 +110,7 @@ class recipeController extends Controller
                 'id'=>$product->id,
                 'name'=>$product->name,
                 'amount'=>$product->pivot->amount,
-                'type'=>$product->type
+                'type'=>trim($product->type)
                 ]);
         }
         return $products;

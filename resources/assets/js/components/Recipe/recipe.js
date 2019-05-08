@@ -39,7 +39,7 @@ export default class Recipe extends Component {
                     <a className="col-12 rounded bordered p-0" href={window.location.origin + '/product/' + product.name}>
                         <span className="row col-12 justify-content-between m-0 p-0"> 
                             <span className="px-1">{product.name.replace(new RegExp("-", "g"), ' ')}</span>
-                            <span className="green px-1 rounded">{product.amount}&nbsp;{product.type+(product.type=='gm'||product.type=='ml'?'':(product.amount>1?'s':''))}</span>
+                            <span className="green px-1 rounded">{product.amount}&nbsp;{product.type+(product.type=='gm'||product.type=='ml'||product.amount<=1?'':'s')}</span>
                         </span>
                     </a>
                 </li>)
@@ -71,14 +71,9 @@ export default class Recipe extends Component {
                 </div>
                 <div className="h-100 col d-flex flex-column flex-wrap p-0">
                     <div className="d-flex col flex-wrap mw-100 pb-2 pb-4">
-                        <div className="col-12 d-flex pb-2 h-70 rounded-top">
-                            <div className="d-flex h-100 col pr-1 pb-2">
-                                <iframe className="col-12 mx-auto p-0 rounded" src="https://www.youtube-nocookie.com/embed/d2go1QxoCag?rel=0&iv_load_policy=3" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
-                            </div>
-                            <div className="col-3 h-100 d-none d-md-flex pb-2 pr-2">
-                                <div className="green-light col h-100 rounded">
-
-                                </div>
+                        <div className="col-12 d-flex pb-2 px-3 h-70 rounded-top">
+                            <div className="d-flex h-100 col p-0 pb-2">
+                                <iframe className="col-12 mx-auto p-0 rounded" src="https://www.youtube.com/embed/mcHddbql5pw?rel=0&iv_load_policy=3" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
                             </div>
                         </div>
                         <div className="col-8 px-3 col-md h-30 rounded-bottom">
