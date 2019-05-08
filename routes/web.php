@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'https'], function(){
 
 Auth::routes();
+
+});
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -58,6 +60,3 @@ Route::get('/getCurrentUser', function(){
     }
     else {return null;}
 })->middleware('api');
-
-});
-
