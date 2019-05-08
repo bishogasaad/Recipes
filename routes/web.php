@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Ramsey\Uuid\Uuid;
 use Illuminate\Http\Request;
 use App\Recipe;
+use Illuminate\Support\Facades\Route;
 //Auth::logout();
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,6 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-
 Route::get('product/{name}','productController@show');
 
 Route::get('search','recipeController@search');
@@ -33,15 +33,8 @@ Route::apiResource('recipe','recipeController');
 Route::get('user','usercontroller@index');
 Route::get('user/{name}','usercontroller@index')->name('user');
 Route::get('user/{name}/recipes','usercontroller@recipes');
-/*Route::get('/recipes/{title}',function($title){
-    $products=App\Recipe::where('title', $title)->first()->products;
-    foreach ($products as $product) {
-        echo("<a href=".route('product', ['name' => $product->name]).">"
-        .str_replace('-',' ',$product->name)."</a><br/>");
-    }
-})->name('recipe');*/
 Route::get('/products/featured','productController@featured');
-
+Route::get('products/search','productController@search');
 Route::get('/logout', function(){
     Auth::logout();
     return redirect()->route('home');
@@ -52,7 +45,9 @@ Route::post('/changePassword','usercontroller@change_pass')->name('chang_pass');
 
 Route::get('/changeName','usercontroller@change_name');
 Route::post('/changeName','usercontroller@change_name')->name('chang_name');
-
+Route::get('/browse',function() {
+    return view('browse');
+})->name('browse');
 Route::get('/getCurrentUser', function(){
     if(Auth::check())
     {

@@ -4,6 +4,12 @@
     -o-transition:width 0.3s linear, max-width 0.3s linear;
     transition: width 0.3s linear, max-width 0.3s linear;
 }
+.left-width_trans{
+    -webkit-transition: left 0.3s linear ,width 0.3s linear, max-width 0.3s linear;
+    -moz-transition: left 0.3s linear ,width 0.3s linear, max-width 0.3s linear;
+    -o-transition: left 0.3s linear ,width 0.3s linear, max-width 0.3s linear;
+    transition: left 0.3s linear ,width 0.3s linear, max-width 0.3s linear;
+}
 .height_trans{
     -webkit-transition: height 0.3s linear;
     -moz-transition: height 0.3s linear;
@@ -52,9 +58,36 @@
     -o-transition-delay: 1s;
     transition-delay: 1s;
 }
+.d-10-search{
+    -webkit-transition-delay: 1s, 0s;
+    -moz-transition-delay: 1s, 0s;
+    -o-transition-delay: 1s, 0s;
+    transition-delay: 1s, 0s;
+}
 .d-15{
     -webkit-transition-delay: 1.5s;
     -moz-transition-delay: 1.5s;
     -o-transition-delay: 1.5s;
     transition-delay: 1.5s;
+}
+.rotate:hover .product{
+    transform: rotateY(180deg);
+    -webkit-transition: transform 0.5s;
+    -moz-transition: transform 0.5s;
+    -o-transition: transform 0.5s;
+    transition: transform 0.5s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+.front{
+    transform: rotateY(0deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.back{
+    transform: rotateY(180deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
 }

@@ -51,9 +51,6 @@
 .h-90{
     height: 90%;
 }
-.h-10{
-    height: 10%;
-}
 
 .w0{
     width: 0;
@@ -91,24 +88,41 @@
 .we-100{
     width: 100vw;
 }
+.w100{
+    width: 100%;
+    max-width: 100%;
+}
+.h100{
+    height: 100%;
+    max-height: 100%;
+}
 .round{
     border-radius: 2em;
 }
-.h1{
+h1{
     font-weight: normal;
+    margin: 0;
 }
-.h2{
+h2{
     font-weight: normal;
+    margin: 0;
 }
-.h3{
+h3{
     font-weight: normal;
+    margin: 0;
 }
-.h4{
+h4{
     font-weight: normal;
+    margin: 0;
 }
-.h5{
+h5{
     font-weight: normal;
+    margin: 0;
 }
-.h6{
+h6{
     font-weight: normal;
+    margin: 0;
+}
+.no-select{
+    user-select: none;
 }

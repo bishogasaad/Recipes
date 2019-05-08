@@ -12,10 +12,11 @@ class DatabaseSeeder extends Seeder
     public function run(Faker $faker)
     {
         // $this->call(UsersTableSeeder::class);
-        factory(App\Product::class,50)->create();
-        factory(App\User::class,5)->create();
-        factory(App\Recipe::class,50)->create();
+        //factory(App\Product::class,50)->create();
+        //factory(App\User::class,5)->create();
+        //factory(App\Recipe::class,50)->create();
         $recipes=App\Recipe::all();
+        $c = 0;
         foreach ($recipes as $recipe) {
             $num=$faker->numberBetween(1,40);
             $array=array();
@@ -24,11 +25,16 @@ class DatabaseSeeder extends Seeder
                 $temp=$faker->numberBetween(1,50);
                 if(!in_array($temp, $array))
                 {   
-                    $pivot_array=array('amount'=>$faker->numberBetween(20,500));
+                    $product = App\Product::where('id',$temp)->first();
+                    $base = json_decode($product->multiples)[0];
+                    $pivot_array=array('amount'=>$faker->numberBetween($base,$base*5));
                     $array[$temp]=$pivot_array;
                 }
             }
             $recipe->products()->sync($array);
+            echo($c);
+            echo ('\n');
+            $c++;
         }
 
     }

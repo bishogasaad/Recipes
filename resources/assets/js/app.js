@@ -19,4 +19,6 @@ require('./components/home/section2');
 require('./components/home/section3');
 require('./components/Recipe/recipe');
 require('./components/Product/product');
+require('./components/Product/product_recipes');
 require('./components/profile/userprofile');
+require('./components/browse');

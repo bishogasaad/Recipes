@@ -9,7 +9,7 @@ var fix_row_at=function(br,element_id){
         };
     }
 }
-$(document).ready(function(){
+/*Z$(document).ready(function(){
     $("#main_sec").parallax({
         imageSrc: './images/alternate.jpg',
         speed:0.5,

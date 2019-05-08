@@ -12,13 +12,29 @@ class recipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $req)
     {
         //
-
-        $recipe=Recipe::find($request->name);
-        return $recipe;
+        $type = array_map('intval', explode(',', $req->input('type')));
+        $query = Recipe::whereIn('type', $type);
+        if ($req->input('persons')!=0)
+        {
+            $persons = $req->input('persons');
+            $query = $query->where('persons','<=',$persons);
+        }
+        if ($req->input('time')!=0)
+        {
+            $time = $req->input('time');
+            $query = $query->where('time','<=',$time);
+        }
+        if ($req->input('rating')!=0.5)
+        {
+            $rating = $req->input('rating');
+            $query = $query->where('rating','>=',$rating);
+        }
+        return $query->get();
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -28,7 +44,7 @@ class recipeController extends Controller
     public function create()
     {
         //
-        return __method__; 
+        return 1; 
     }
 
     public function featured()
@@ -49,10 +65,20 @@ class recipeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
         //
-        return __method__;
+        $recipe = new Recipe;
+        $recipe->title = $req->recipe['title'];
+        $recipe->persons = $req->recipe['persons'];
+        $recipe->time = $req->recipe['time'];
+        $recipe->instruction = $req->recipe['instruction'];
+        $recipe->type = $req->recipe['type'];
+        $recipe->user_id = Auth::id();
+        $recipe->save();
+        foreach ($req->products as $product) {
+            $recipe->products()->attach($product['id'],['amount'=>$product['amount']]);
+        }
     }
 
     /**
@@ -80,7 +106,12 @@ class recipeController extends Controller
         $recipe=Recipe::findOrFail($req->input('id'));
         $products=[];
         foreach ($recipe->products as $product) {
-            array_push($products,[$product->name,$product->pivot->amount,$product->type]);
+            array_push($products,[
+                'id'=>$product->id,
+                'name'=>$product->name,
+                'amount'=>$product->pivot->amount,
+                'type'=>$product->type
+                ]);
         }
         return $products;
     }
@@ -93,7 +124,7 @@ class recipeController extends Controller
     public function edit($id)
     {
         //
-        return __method__;
+        return $id;
     }
 
     /**
@@ -131,6 +162,28 @@ class recipeController extends Controller
                 }
             }
             else return 'error';
+        }
+        else{
+            if(Auth::check()){
+                $recipe=Recipe::findOrFail($id);
+                $recipe->title = $req->recipe['title'];
+                $recipe->persons = $req->recipe['persons'];
+                $recipe->time = $req->recipe['time'];
+                $recipe->instruction = $req->recipe['instruction'];
+                $recipe->type = $req->recipe['type'];
+                $recipe->save();
+                foreach ($req->products as $product) {
+                    if($product['amount']==0){
+                        $recipe->products()->detach($product['id']);
+                    }
+                    else{
+                        if($recipe->products()->where('id',$product['id'])->count()==0) {
+                            $recipe->products()->attach($product['id'],['amount'=>$product['amount']]);
+                        }
+                        $recipe->products()->updateExistingPivot($product['id'],['amount'=>$product['amount']]);
+                    }
+                }
+            }
         }
 
     }

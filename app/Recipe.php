@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Recipe extends Model
 {
     //
+    protected $hidden = ['pivot'];
     public function products()
     {
         return $this->belongsToMany('App\Product','recipe_products','recipe_id','product_id')

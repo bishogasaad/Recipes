@@ -7,10 +7,8 @@ var square=function(){
 $(document).ready(function(){
     var array=$(".img-square").toArray();
     square();
-    $(".square-2x").width(2*$(".square-2x").height());
     window.addEventListener("resize", function() {
         square();
-        $(".square-2x").width(2*$(".square-2x").height());
     }, false);
 });
 module.exports = {

@@ -59,4 +59,3 @@ $factory->define(App\Product::class, function (Faker $faker) {
         'quantity'=>$faker->numberBetween(0,50)
     ];
 });
-

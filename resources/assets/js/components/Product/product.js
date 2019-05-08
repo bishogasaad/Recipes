@@ -49,7 +49,7 @@ export default class Product extends Component {
                             <div className="py-2 text-blue"><h4>{this.state.name}</h4></div>
                             <div className="d-flex flex-row flex-wrap p-0">
                                 <div className="col-12 col-xl align-items-start p-0 d-flex flex-wrap hidden">
-                                    <img className="col-6 col-xl p-0 rounded" src={"http://localhost:8080/images/StockSnap_IZBN5G7AAB.jpg"} />
+                                    <img className="col-6 col-xl p-0 rounded" src={"/images/StockSnap_IZBN5G7AAB.jpg"} />
                                     <div className={"col d-xl-none text-"+(this.state.Available?'success':'danger')}>{this.state.Available?'Available':'Unavailable'}</div>
                                 </div>
                                 <div className="pl-xl-4 py-3 p-xl-0 col mw-100 col-xl-8 text-white p-0">
@@ -63,7 +63,7 @@ export default class Product extends Component {
                                 <div className="d-flex justify-content-between col align-items-baseline">
                                     <div className="d-flex align-items-baseline">
                                         <h2 className=" text-blue">Price:</h2>
-                                        <h3>&nbsp; {this.state.price} Egp</h3>
+                                        <h3>&nbsp; {this.state.price} Usd</h3>
                                     </div>
                                     <p className="text-secondary">per {this.state.multiples[0]} {this.state.type}</p>
                                 </div>
@@ -71,7 +71,6 @@ export default class Product extends Component {
                                     <div className="rounded col-12 m-auto bg-success text-center p-2 pointer">Add to Cart</div>
                                 </div>
                             </div>
-                            <div className="col-2 d-none d-xl-block"></div>
                         </div>
                     </div>
                 </div>
@@ -82,15 +81,17 @@ export default class Product extends Component {
                             <div className="p-3 col">
                                 <div className="bg-white h-100 rounded p-3 d-flex flex-wrap">
                                     <div className={"text-center text-"+(this.state.Available?'success':'danger')+" col-12"}>{this.state.Available?'Available':'Unavailable'}</div>
-                                    <div className="col-12 d-flex justify-content-between"><div>company</div><div className="text-secondary">{this.state.company}</div></div>
+                                    <div className="col-12 d-flex justify-content-between text-secondary"><div>company</div><div className="text-dark">{this.state.company}</div></div>
                                     <div className="justify-content-between m-auto col-12 d-flex align-items-baseline">
-                                        <div className="d-flex text-secondary">Select Quantity</div>
-                                        <div className="py-3 d-inline">
-                                            <select className="rounded" onChange={(e)=>this.handlechange(e)}>
-                                                {list}
-                                            </select>
+                                        <div className="d-flex text-secondary">Select Quantity :</div>
+                                        <div className="row align-items-center justify-content-between">
+                                            <div className="py-3 d-inline px-2">
+                                                <select className="rounded" onChange={(e)=>this.handlechange(e)}>
+                                                    {list}
+                                                </select>
+                                            </div>
+                                            <div>{this.state.type}</div>
                                         </div>
-                                        <div>{this.state.type}</div>
                                     </div>
                                     <div className="col-12 d-flex justify-content-start"><div className="text-secondary">Total Price:&nbsp;</div><div>{(this.state.selectedValue/this.state.multiples[0]*this.state.price).toFixed(2)}</div></div>
                                 </div>
