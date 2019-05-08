@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'https'], function(){
 
 Auth::routes();
 Route::get('/', function () {
@@ -58,7 +59,5 @@ Route::get('/getCurrentUser', function(){
     else {return null;}
 })->middleware('api');
 
-Route::get('/test',function(Request $req){
-    Recipe::findOrFail(15)->raters()->attach('c42f3279-c88c-3e63-a5a2-6f3d6f12f10e',
-                    ['rating'=>2.5]);
 });
+

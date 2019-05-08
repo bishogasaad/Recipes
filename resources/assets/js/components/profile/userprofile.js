@@ -200,7 +200,7 @@ export default class UserProfile extends Component{
         }
     }
     componentDidMount(){
-        axios.get(window.location.origin+"/user/")
+        axios.get(window.location.origin+"/user")
         .then((res)=>{
             if(res.data[1]==this.state.user_id)
             {
